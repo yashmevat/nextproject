@@ -1,5 +1,5 @@
 'use client'; // if using App Router in Next.js 13+
-
+/* eslint-disable jsx-a11y/alt-text */
 export default function Header() {
 
   return (

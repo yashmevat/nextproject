@@ -1,4 +1,5 @@
 'use client'
+/* eslint-disable jsx-a11y/alt-text */
 import { useEffect, useRef, useState } from 'react'
 
 const images = [

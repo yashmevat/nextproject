@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 "use client"
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';

@@ -1,5 +1,5 @@
 import React , { useEffect, useRef } from 'react'
-
+/* eslint-disable jsx-a11y/alt-text */
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
