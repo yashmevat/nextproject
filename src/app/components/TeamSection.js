@@ -13,13 +13,13 @@ const TeamSection = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(teamsectionheadingref.current,
-        { opacity: 0, y: 100 },
+        { opacity: 0, y: 200 },
         {
           opacity: 1,
           y: 0,
           duration: 1.2,
           ease: "power3.out",
-          stagger: 0.3,
+          stagger: 1.2,
           scrollTrigger: {
             trigger: teamsectionref.current,
             start: "top 80%", // when top of section hits 80% of viewport height
@@ -29,7 +29,7 @@ const TeamSection = () => {
         }
       )
       gsap.fromTo(".teamimages", {
-        opacity: 0, y: 100
+        opacity: 0, y: 200
       }, {
         opacity: 1,
         y: 0,

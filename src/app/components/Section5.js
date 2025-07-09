@@ -73,14 +73,14 @@ const Section5 = () => {
 
     <div className="flex flex-col sm:flex-row gap-3 w-full md:w-[70%] justify-center md:ml-10 sm:p-5">
       <ul className="list-disc text-left ">
-        <li className="p-2 text-lg sm:text-xl">275+ premium section templates to mix and match</li>
-        <li className="p-2 text-lg sm:text-xl">Page builder with front-end and back-end editing</li>
-        <li className="p-2 text-lg sm:text-xl">Massive element library with extensive options</li>
+        <li className="p-2 text-lg sm:text-xl listitems">275+ premium section templates to mix and match</li>
+        <li className="p-2 text-lg sm:text-xl listitems">Page builder with front-end and back-end editing</li>
+        <li className="p-2 text-lg sm:text-xl listitems">Massive element library with extensive options</li>
       </ul>
       <ul className="list-disc text-left ">
-        <li className="p-2 text-lg sm:text-xl">275+ premium section templates to mix and match</li>
-        <li className="p-2 text-lg sm:text-xl">Page builder with front-end and back-end editing</li>
-        <li className="p-2 text-lg sm:text-xl">Massive element library with extensive options</li>
+        <li className="p-2 text-lg sm:text-xl listitems">275+ premium section templates to mix and match</li>
+        <li className="p-2 text-lg sm:text-xl listitems">Page builder with front-end and back-end editing</li>
+        <li className="p-2 text-lg sm:text-xl listitems">Massive element library with extensive options</li>
       </ul>
     </div>
 
