@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
+
 import React, { useEffect, useRef } from 'react'
 
 
@@ -37,7 +37,7 @@ const VideoSection = () => {
           &#9658;
         </span>
         <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-          See What We're About
+          See What We&apos;re About
         </h1>
       </div>
     </div>

@@ -1,5 +1,5 @@
 'use client'
-/* eslint-disable jsx-a11y/alt-text */
+
 import { useEffect, useRef, useState } from 'react'
 
 const images = [
@@ -45,7 +45,7 @@ export default function ModernCarousel() {
   {/* Scrollable Carousel */}
   <div
     ref={scrollRef}
-    className="flex overflow-x-auto space-x-4 scroll-smooth pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+    className="flex overflow-x-auto space-x-4 scroll-smooth pb-4 md:ml-[10%] snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
   >
     {images.map((src, idx) => (
       <div

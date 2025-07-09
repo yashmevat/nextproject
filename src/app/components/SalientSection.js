@@ -1,5 +1,5 @@
 import React , { useEffect, useRef } from 'react'
-/* eslint-disable jsx-a11y/alt-text */
+
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -55,20 +55,20 @@ const SalientSection = () => {
     
       <div id="salientsection" className='mt-[10%] w-[100%] flex flex-col justify-center items-center gap-20' ref={salientsectionref}>
         <div className='md:w-[30%] sm:w-[100%] md:ml-[-37%]'>
-          <h4 className='text-3xl sm:text-4xl md:text-5xl text-center md:text-left font-bold' ref={salientsectionheadingref}>We've worked with some of the biggest brands</h4>
+          <h4 className='text-3xl sm:text-4xl md:text-5xl text-center md:text-left font-bold' ref={salientsectionheadingref}>We&apos;ve worked with some of the biggest brands</h4>
         </div>
 
         <div className="grid grid-cols-5 gap-4 w-[70%]">
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
-          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
+          <div><img src="http://themenectar.com/demo/dummy-data-imgs/tn-sample-logo-grey.png" className="salientimages" alt="alt" /></div>
         </div>
 
         <div>
