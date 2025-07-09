@@ -61,7 +61,7 @@ const Section3 = () => {
   {/* Image Section */}
   <div id="section3-img" className="mb-6 md:mb-0">
     <img
-      src="http://localhost/wordpress/wp-content/uploads/2019/09/omar-lopez-rwF_pJRWhAI-unsplash-small.jpg"
+      src="/images/omar-lopez-rwF_pJRWhAI-unsplash-small.jpg"
       ref={section3imgref}
       className="w-60 md:w-[40em] h-auto"
       alt="Section"
@@ -103,7 +103,7 @@ const Section3 = () => {
         className="flex items-center gap-3 mt-3 sm:justify-left md:justify-start"
       >
         <img
-          src="http://localhost/wordpress/wp-content/uploads/2019/09/david-hurley-1321290-unsplash.jpg"
+          src="/images/david-hurley-1321290-unsplash.jpg"
           className="w-10 h-10 rounded-full object-cover"
           alt="Author"
         />

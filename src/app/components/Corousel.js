@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 
 const images = [
-  "http://localhost/wordpress/wp-content/uploads/2019/09/andre-benz-ITzzbdwnCvY-unsplash.jpg",
-  "http://localhost/wordpress/wp-content/uploads/2019/09/blake-wisz-q3o_8MteFM0-unsplash.jpg",
-  "http://localhost/wordpress/wp-content/uploads/2019/09/v2osk-pQ7GIGO6esE-unsplash.jpg",
-  "http://localhost/wordpress/wp-content/uploads/2019/09/room-mt8G98XVxlg-unsplash.jpg",
-  "http://localhost/wordpress/wp-content/uploads/2019/09/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
+  "/images/andre-benz-ITzzbdwnCvY-unsplash.jpg",
+  "/images/blake-wisz-q3o_8MteFM0-unsplash.jpg",
+  "/images/v2osk-pQ7GIGO6esE-unsplash.jpg",
+  "/images/room-mt8G98XVxlg-unsplash.jpg",
+  "/images/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
 ]
 
 export default function Carousel() {

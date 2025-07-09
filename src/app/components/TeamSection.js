@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react'
 
 
@@ -63,7 +62,7 @@ const TeamSection = () => {
         <div className="w-full md:w-[20%] flex flex-col gap-10">
           {/* Card 1 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
-            <img src="http://localhost/wordpress/wp-content/uploads/2019/09/albert-dera-ILip77SbmOE-unsplash-1.jpg" className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg" />
+            <img src="/images/albert-dera-ILip77SbmOE-unsplash-1.jpg" className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg" />
             <p className="font-medium">CEO, Founder</p>
             <div>
               <h4 className="font-bold text-2xl sm:text-3xl mb-2">James Warren</h4>
@@ -76,7 +75,7 @@ const TeamSection = () => {
           {/* Card 2 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="http://localhost/wordpress/wp-content/uploads/2019/09/team5.jpg"
+              src="/images/team5.jpg"
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -94,7 +93,7 @@ const TeamSection = () => {
           {/* Card 3 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="http://localhost/wordpress/wp-content/uploads/2019/09/team-6.jpg"
+              src="/images/team-6.jpg"
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -109,7 +108,7 @@ const TeamSection = () => {
           {/* Card 4 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="http://localhost/wordpress/wp-content/uploads/2019/09/team2.jpg"
+              src="/images/team2.jpg"
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -127,7 +126,7 @@ const TeamSection = () => {
           {/* Card 5 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="http://localhost/wordpress/wp-content/uploads/2019/09/team7.jpg"
+              src="/images/team7.jpg"
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -142,7 +141,7 @@ const TeamSection = () => {
           {/* Card 6 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="http://localhost/wordpress/wp-content/uploads/2019/09/matheus-ferrero-W7b3eDUb_2I-unsplash.jpg"
+              src="/images/matheus-ferrero-W7b3eDUb_2I-unsplash.jpg"
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>

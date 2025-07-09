@@ -59,10 +59,10 @@ const Section4 = () => {
 
   <div id="section4images" className='flex flex-col md:flex-row md:justify-around gap-3 p-3 items-center w-full'>
     {[
-      "http://localhost/wordpress/wp-content/uploads/2019/09/cristian-palmer-763347-unsplash-1-small-1.jpg",
-      "http://localhost/wordpress/wp-content/uploads/2019/09/thanai-manasathit-7rvQWFxJZKE-unsplash-small.jpg",
-      "http://localhost/wordpress/wp-content/uploads/2019/09/adrian-cuj-69FRyWD5Rt0-unsplash.jpg",
-      "http://localhost/wordpress/wp-content/uploads/2019/09/jason-briscoe-5IGprlBT5g4-unsplash-small.jpg",
+      "/images/cristian-palmer-763347-unsplash-1-small-1.jpg",
+      "/images/thanai-manasathit-7rvQWFxJZKE-unsplash-small.jpg",
+      "/images/adrian-cuj-69FRyWD5Rt0-unsplash.jpg",
+      "/images/jason-briscoe-5IGprlBT5g4-unsplash-small.jpg",
     ].map((imgUrl, idx) => (
       <div
         key={idx}

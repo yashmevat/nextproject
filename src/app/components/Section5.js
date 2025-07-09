@@ -95,7 +95,7 @@ const Section5 = () => {
   </div>
 
   {/* Right Section (Image) */}
-  <div id="section4images" ref={section5refimg} className="w-full sm:w-[40%] h-80 sm:h-[70%] md:h-[60vh] bg-[url('http://localhost/wordpress/wp-content/uploads/2019/09/sheng-li-KC5x7jyd33U-unsplash-small.jpg')] bg-cover bg-center bg-no-repeat"/>
+  <div id="section4images" ref={section5refimg} className="w-full sm:w-[40%] h-80 sm:h-[70%] md:h-[60vh] bg-[url('/images/sheng-li-KC5x7jyd33U-unsplash-small.jpg')] bg-cover bg-center bg-no-repeat"/>
       
 </div>
 

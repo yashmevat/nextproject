@@ -41,16 +41,16 @@ export default function Home() {
       },
     })
     gsap.to(navimgref.current, {
-      src: 'http://localhost/wordpress/wp-content/uploads/2019/09/dark.png',
+      src: '/images/dark.png',
       duration: 0.5,
       scrollTrigger: {
         trigger: document.body,
         start: 'top -10px',
         onEnter: () => {
-          if (navimgref.current) navimgref.current.src = 'http://localhost/wordpress/wp-content/uploads/2019/09/dark.png' // New image on scroll
+          if (navimgref.current) navimgref.current.src = '/images/dark.png' // New image on scroll
         },
         onLeaveBack: () => {
-          if (navimgref.current) navimgref.current.src = 'http://localhost/wordpress/wp-content/uploads/2019/09/light.png' // New image on scroll
+          if (navimgref.current) navimgref.current.src = '/images/light.png' // New image on scroll
         },
         toggleActions: 'play none none reverse',
         // markers: true // (Optional) shows visual debug markers
@@ -76,7 +76,7 @@ export default function Home() {
   className="relative min-h-[40vh] md:min-h-[93vh] bg-cover bg-center bg-no-repeat"
   style={{
     backgroundImage:
-      "url('http://localhost/wordpress/wp-content/uploads/2019/09/kai-pilger-mgFzfrrmGKI-unsplash.jpg')",
+      "url('/images/kai-pilger-mgFzfrrmGKI-unsplash.jpg')",
   }}
 >
   {/* Dark Overlay */}
@@ -92,7 +92,7 @@ export default function Home() {
         ref={navref}
       >
         <img
-          src="http://localhost/wordpress/wp-content/uploads/2019/09/light.png"
+          src="/images/light.png"
           className="w-28 h-auto"
           ref={navimgref}
           alt="Logo"
