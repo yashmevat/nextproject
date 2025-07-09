@@ -59,10 +59,10 @@ const Section4 = () => {
 
       <div id="section4images" className='flex flex-col md:flex-row md:justify-around gap-3 p-3 items-center w-full'>
         {[
-          "/images/cristian-palmer-763347-unsplash-1-small-1.jpg",
-          "/images/thanai-manasathit-7rvQWFxJZKE-unsplash-small.jpg",
-          "/images/adrian-cuj-69FRyWD5Rt0-unsplash.jpg",
-          "/images/jason-briscoe-5IGprlBT5g4-unsplash-small.jpg",
+          {img:"/images/cristian-palmer-763347-unsplash-1-small-1.jpg" ,text:"Exclusive Design"},
+          {img:"/images/thanai-manasathit-7rvQWFxJZKE-unsplash-small.jpg",text:"Visual Builder"},
+          {img:"/images/adrian-cuj-69FRyWD5Rt0-unsplash.jpg",text:"Powerful Tools"},
+          {img:"/images/jason-briscoe-5IGprlBT5g4-unsplash-small.jpg",text:"Quick Importer"}
         ].map((imgUrl, idx) => (
           // <div
           //   key={idx}
@@ -72,12 +72,13 @@ const Section4 = () => {
           <div
             key={idx}
             className="section4images relative flex flex-col justify-end p-5 w-[90%] md:w-[22%] h-[60vh] cursor-pointer overflow-hidden">
-            <img src={`${imgUrl}`} alt="image" className="section4imagestag w-full h-full object-cover absolute top-0 left-0" />
+            <img src={`${imgUrl.img}`} alt="image" className="section4imagestag w-full h-full object-cover absolute top-0 left-0" />
 
             <svg role="presentation" color="white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32" />
-            <h2 className='text-3xl md:text-4xl absolute font-bold text-white z-10 section4imagestext'>Exclusive Design</h2>
+            <h2 className='text-3xl md:text-4xl absolute font-bold text-white z-10 section4imagestext'>{imgUrl.text}</h2>
+            <div className='bg-black bg-gradient-to-br absolute top-0 opacity-40 left-0 h-full w-full'/>
             <div className='bg-orange-400 bg-gradient-to-br absolute -bottom-[350px] left-0 h-full w-full section4overlay flex flex-col justify-end items-center'>
-              <div className="text-xl md:text-2xl absolute text-white bottom-10 left-15 italic overlaytext">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              <div className="text-l md:text-2xl absolute text-white bottom-10 left-15 italic overlaytext">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </div>
             </div>
           </div>
