@@ -112,7 +112,7 @@ export default function Home() {
     {/* Hero Section */}
     <section className="flex flex-col items-center md:items-start justify-center px-6 md:px-24 py-40 text-white min-h-[40vh] md:min-h-[93vh]  md:ml-70">
       <h2
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-left md:text-left max-w-3xl mb-6 md:w-[40%]"
+        className="text-3xl sm:text-4xl md:text-3xl lg:text-6xl lg:w-[40%] font-bold leading-tight text-left md:text-left max-w-3xl mb-6 md:w-[60%]"
         id="herotext"
         ref={herotextref}
       >

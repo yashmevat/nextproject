@@ -71,7 +71,7 @@ const Section3 = () => {
   {/* Text Section */}
   <div id="section3Text" className="flex flex-col gap-5 max-w-xl md:w-[30%]">
     <h1
-      className="text-2xl font-bold md:text-5xl sm:text-left md:text-left"
+      className="text-2xl font-bold md:text-4xl sm:text-left md:text-left"
       ref={section3heading}
     >
       We can take your business to the next level
@@ -94,7 +94,7 @@ const Section3 = () => {
     <hr className="my-4 border-gray-300" />
 
     <div id="section3-bottomtext" ref={section3bottom}>
-      <h4 className="text-xl md:text-lg italic text-justify md:w-[50%]">
+      <h4 className="text-xl md:text-lg font-semibold text-justify md:w-[50%]">
         “I had a great experience with Salient from start to finish.”
       </h4>
 
