@@ -78,7 +78,7 @@ const Section4 = () => {
             <h2 className='text-3xl md:text-4xl absolute font-bold text-white z-10 section4imagestext'>{imgUrl.text}</h2>
             <div className='bg-black bg-gradient-to-br absolute top-0 opacity-40 left-0 h-full w-full'/>
             <div className='bg-orange-400 bg-gradient-to-br absolute -bottom-[350px] left-0 h-full w-full section4overlay flex flex-col justify-end items-center'>
-              <div className="text-l md:text-2xl absolute text-white bottom-10 left-15 italic overlaytext">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              <div className="text-l md:text-2xl absolute text-white bottom-10 left-15 italic overlaytext px-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </div>
             </div>
           </div>
