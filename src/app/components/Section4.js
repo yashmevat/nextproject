@@ -71,7 +71,7 @@ const Section4 = () => {
           // >
           <div
             key={idx}
-            className="section4images relative flex flex-col justify-end p-5 w-[90%] md:w-[22%] h-[60vh] cursor-pointer overflow-hidden">
+            className="section4images relative flex flex-col justify-end p-5 w-[90%] md:w-[22%] h-[50vh] cursor-pointer overflow-hidden">
             <img src={`${imgUrl.img}`} alt="image" className="section4imagestag w-full h-full object-cover absolute top-0 left-0" />
 
             <svg role="presentation" color="white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32" />

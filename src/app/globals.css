@@ -20,7 +20,7 @@
 }
 /* globals.css */
 ::-webkit-scrollbar {
-  height: 6px;
+  height: 2px;
 }
 ::-webkit-scrollbar-track {
   background: #e5e7eb; /* Tailwind's gray-200 */

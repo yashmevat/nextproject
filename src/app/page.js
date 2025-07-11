@@ -14,12 +14,14 @@ import Footer from './components/Footer';
 gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [left, setLeft] = useState(false);
   const navref = useRef(null)
   const herotextref = useRef(null)
   const navlistref = useRef(null)
   const navimgref = useRef(null)
   const herobtnref = useRef(null)
   const svgref = useRef(null)
+  const mainref = useRef(null)
   useEffect(() => {
 
     gsap.to(navref.current, {
@@ -33,18 +35,18 @@ export default function Home() {
     })
 
     gsap.to(svgref.current, {
-     scrollTrigger:{
-      trigger: document.body,       // Trigger after hero section
-      start: "top -10px",        // When bottom of hero hits top of viewport
-      toggleActions: "play reverse play reverse",
-      onEnter: () => {
-        gsap.to(svgref.current, { stroke: "#000000", duration: 0.3 });
-      },
-      onLeaveBack: () => {
-        gsap.to(svgref.current, { stroke: "#ffffff", duration: 0.3 });
-      },
-    }
-  })
+      scrollTrigger: {
+        trigger: document.body,       // Trigger after hero section
+        start: "top -10px",        // When bottom of hero hits top of viewport
+        toggleActions: "play reverse play reverse",
+        onEnter: () => {
+          gsap.to(svgref.current, { stroke: "#000000", duration: 0.3 });
+        },
+        onLeaveBack: () => {
+          gsap.to(svgref.current, { stroke: "#ffffff", duration: 0.3 });
+        },
+      }
+    })
     gsap.to(navlistref.current, {
       color: 'black',
       duration: 0.5,
@@ -85,6 +87,8 @@ export default function Home() {
 
 
   }, []);
+
+
   return (
     <>
       <div
@@ -93,17 +97,18 @@ export default function Home() {
           backgroundImage:
             "url('/images/kai-pilger-mgFzfrrmGKI-unsplash.jpg')",
         }}
+        ref={mainref}
       >
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/45 z-0" />
+        <div className="absolute inset-0 bg-black/45" />
 
         {/* Content Above Background */}
-        <div className="relative z-10">
+        <div className="relative">
 
           {/* Navbar */}
           <div className="fixed top-0 left-0 w-full z-50">
             <nav
-              className="flex justify-between items-center px-6 py-4 md:px-12 md:justify-around text-white relative z-50"
+              className="flex justify-between items-center px-6 py-4 md:px-12 md:justify-around text-white relative"
               ref={navref}
             >
               {/* Logo */}
@@ -128,7 +133,10 @@ export default function Home() {
               {/* Hamburger Button */}
               <button
                 className="md:hidden z-50"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen)
+                  // shiftleft()
+                }}
                 aria-label="Toggle Menu"
               >
                 <svg
@@ -152,89 +160,115 @@ export default function Home() {
               {/* Mobile Slide-In Menu */}
               <div
                 className={`
-          fixed top-0 right-0 h-full w-[70%] bg-orange-500 text-white transform transition-transform duration-600 ease-in-out
-          ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-          md:hidden flex flex-col items-start px-6 py-20 space-y-2 font-medium text-lg
-        `}
+                            fixed top-0 right-0 h-full w-[70%] bg-orange-500 text-white transform transition-transform duration-600 ease-in-out
+                            ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+                            md:hidden flex flex-col items-start px-6 py-20 space-y-2 font-medium text-lg
+                          `}
               >
                 <a href="#home" className="hover:text-amber-400" onClick={() => setIsMenuOpen(false)}>Home</a>
                 <a href="#features" className="hover:text-amber-400" onClick={() => setIsMenuOpen(false)}>Features</a>
                 <a href="#pricing" className="hover:text-amber-400" onClick={() => setIsMenuOpen(false)}>Pricing</a>
-                <a href="#contact" className="hover:text-amber-400" onClick={() => setIsMenuOpen(false)}>Contact</a><br/><br/>
-                <div id="text-3" className="widget widget_text">			<div className="textwidget"><h4>About Salient</h4><br/>
+                <a href="#contact" className="hover:text-amber-400" onClick={() => setIsMenuOpen(false)}>Contact</a><br /><br />
+                <div id="text-3" className="widget widget_text">			<div className="textwidget"><h4>About Salient</h4><br />
                   <div className="textwidget">
-                    <p className='text-lg'>The Castle<br/>
-                      Unit 345<br/>
-                        2500 Castle Dr<br/>
-                          Manhattan, NY</p><br/>
-                        <p>T:&nbsp;<a href="http://themenectar.com/demo/salient-ascend/#">+216 (0)40 3629 4753</a><br/>
-                          E:&nbsp;<a href="http://themenectar.com/demo/salient-ascend/#">hello@themenectar.com</a></p>
-                      </div>
-                    </div>
+                    <p className='text-lg'>The Castle<br />
+                      Unit 345<br />
+                      2500 Castle Dr<br />
+                      Manhattan, NY</p><br />
+                    <p>T:&nbsp;<a href="http://themenectar.com/demo/salient-ascend/#">+216 (0)40 3629 4753</a><br />
+                      E:&nbsp;<a href="http://themenectar.com/demo/salient-ascend/#">hello@themenectar.com</a></p>
                   </div>
                 </div>
-                </nav>
+                </div>
               </div>
-
-              {/* Hero Section */}
-              <section className="flex flex-col items-center md:items-start justify-center px-6 md:px-24 py-40 text-white min-h-[40vh] md:min-h-[93vh]  md:ml-70">
-                <h2
-                  className="text-3xl sm:text-2xl md:text-3xl lg:text-5xl lg:w-[30%] font-bold leading-tight text-left md:text-left max-w-3xl mb-6 md:w-[60%]"
-                  id="herotext"
-                  ref={herotextref}
-                >
-                  Breathing life into brands through stunning design
-                </h2>
-                <a
-                  href="#get-started"
-                  className="text-lg sm:text-xl px-6 py-3 bg-amber-600 text-white rounded-full font-semibold mt-4 "
-                  ref={herobtnref}
-                  id="dicoverbtn"
-                >
-                  &#8594; Discover More
-                </a>
-              </section>
-
+            </nav>
           </div>
+
+
+
+
+
+
+
+          {/* Hero Section */}
+          <section className="flex flex-col items-center md:items-start justify-center px-6 md:px-24 py-40 text-white min-h-[40vh] md:min-h-[93vh]  md:ml-70">
+            <h2
+              className="text-3xl sm:text-2xl md:text-3xl lg:text-5xl lg:w-[30%] font-bold leading-tight text-left md:text-left max-w-3xl mb-6 md:w-[60%]"
+              id="herotext"
+              ref={herotextref}
+            >
+              Breathing life into brands through stunning design
+            </h2>
+            <a
+              href="#get-started"
+              className="text-lg sm:text-xl px-6 py-3 bg-amber-600 text-white rounded-full font-semibold mt-4 "
+              ref={herobtnref}
+              id="dicoverbtn"
+            >
+              &#8594; Discover More
+            </a>
+          </section>
+
         </div>
+      </div>
 
 
 
-        {/* Section 3*/}
+      {/* Section 3*/}
+      <section>
+
         <Section3 />
-        {/* section 4 */}
-        <Section4 />
+      </section>
+      {/* section 4 */}
+      <section>
 
-        {/*section 5*/}
+        <Section4 />
+      </section>
+
+      {/*section 5*/}
+      <section>
 
         <Section5 />
+      </section>
 
 
-        {/*section video*/}
+      {/*section video*/}
+      <section>
 
 
         <VideoSection />
+      </section>
 
-        {/*team section*/}
+      {/*team section*/}
+
+      <section>
+
 
         <TeamSection />
+      </section>
 
-        {/* corousel section*/}
+      {/* corousel section*/}
 
 
-        <section className="min-h-screen flex items-center justify-center flex-col ">
-          <div className='md:w-[40vw] w-[90vw] my-30'>
-            <h1 className='font-bold md:text-5xl text-2xl text-center'>A vibrant work culture that flows with creativity is our secret</h1></div>
-          <ModernCarousel />
-        </section>
+      <section className="min-h-screen flex items-center justify-center flex-col ">
+        <div className='md:w-[40vw] w-[90vw] my-30'>
+          <h1 className='font-bold md:text-5xl text-2xl text-center'>A vibrant work culture that flows with creativity is our secret</h1></div>
+        <ModernCarousel />
+      </section>
 
-        {/*salient section*/}
+      {/*salient section*/}
+      <section>
+
         <SalientSection />
+      </section>
 
-        {/* last section or footer section */}
+      {/* last section or footer section */}
+      <section>
+
         <Footer />
-      </>
+      </section>
+    </>
 
 
-      );
+  );
 }
