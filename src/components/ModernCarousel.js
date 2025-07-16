@@ -2,15 +2,25 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const images = [
-    "/images/andre-benz-ITzzbdwnCvY-unsplash.jpg",
-    "/images/blake-wisz-q3o_8MteFM0-unsplash.jpg",
-    "/images/v2osk-pQ7GIGO6esE-unsplash.jpg",
-    "/images/room-mt8G98XVxlg-unsplash.jpg",
-    "/images/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
-]
 
-export default function ModernCarousel() {
+
+export default function ModernCarousel({images,texts}) {
+
+const imageId = [5902,5819,5908,5899,5846]
+const myimages=imageId.map(id =>
+  images.find(img => img.id === id)
+).filter(Boolean);
+// console.log(myimages)
+
+
+
+//   const images2 = [
+//     "/images/andre-benz-ITzzbdwnCvY-unsplash.jpg",
+//     "/images/blake-wisz-q3o_8MteFM0-unsplash.jpg",
+//     "/images/v2osk-pQ7GIGO6esE-unsplash.jpg",
+//     "/images/room-mt8G98XVxlg-unsplash.jpg",
+//     "/images/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
+// ]
     const scrollRef = useRef(null)
     const [zoomImage, setZoomImage] = useState(null)
 
@@ -47,14 +57,14 @@ export default function ModernCarousel() {
     ref={scrollRef}
     className="flex overflow-x-auto space-x-4 scroll-smooth pb-4 md:ml-[10%] snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
   >
-    {images.map((src, idx) => (
+    {myimages.map((img, idx) => (
       <div
         key={idx}
         className="flex-shrink-0 shadow-md overflow-hidden cursor-pointer snap-start"
-        onClick={() => setZoomImage(src)}
+        onClick={() => setZoomImage(img?.guid)}
       >
         <img
-          src={src}
+          src={img?.guid}
           alt={`img-${idx}`}
           className="w-auto h-[40vh] sm:h-[50vh] md:h-[60vh] object-cover transition-transform hover:scale-105 duration-300"
         />

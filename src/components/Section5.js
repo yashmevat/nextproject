@@ -1,19 +1,50 @@
 
-import React , { useEffect, useRef } from 'react'
+import React , { useEffect, useRef, useState } from 'react'
 
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getImage } from '@/utils/getImage';
 
 gsap.registerPlugin(ScrollTrigger);
-const Section5 = () => {
+const Section5 = ({images,texts}) => {
+  
+
+
+  const [imageUrl, setImageUrl] = useState(null);
+  const [imageAlt, setImageAlt] = useState('');
+
+  useEffect(() => {
+    const fetchLatestImage = async () => {
+      try {
+        const response = await fetch(
+          'http://localhost/wordpress/wp-json/wp/v2/media?per_page=1&orderby=date&order=desc'
+        );
+        const data = await response.json();
+
+        if (data.length > 0) {
+          setImageUrl(data[0].source_url);
+          setImageAlt(data[0].alt_text || data[0].title.rendered || 'Latest Image');
+        }
+      } catch (error) {
+        console.error('Error fetching latest image:', error);
+      }
+    };
+
+    fetchLatestImage();
+  }, []);
+
+
+  console.log("section 5 image",imageUrl)
+
+
       const section5ref = useRef(null)
     const section5headingref = useRef(null)
     const section5refimg = useRef(null)
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.fromTo([section5headingref.current,section5refimg.current],
+            gsap.fromTo(section5headingref.current,
                 { opacity: 0, y: 100 },
                 {
                     opacity: 1,
@@ -29,6 +60,25 @@ const Section5 = () => {
                     },
                 }
             )
+            gsap.fromTo(section5refimg.current,{
+
+              scale:0.3,
+              opacity:0
+            },{
+                   opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    stagger:0.3,
+                    scrollTrigger: {
+                        trigger: section5ref.current,
+                        start: "top 80%", // when top of section hits 80% of viewport height
+                        toggleActions: "play none none reverse",
+                        // markers: true
+                    },
+
+
+            })
             gsap.fromTo(["#list",".listitems","#meetbutton"], {
                 opacity: 0, x: -100
             }, {
@@ -51,6 +101,10 @@ const Section5 = () => {
 
         return () => ctx.revert()
     }, [])
+
+    const section5Image = getImage(12,images)
+    console.log(section5Image)
+
   return (
      <div
   id="section5"
@@ -67,7 +121,7 @@ const Section5 = () => {
         className="text-3xl sm:text-4xl md:text-5xl font-bold"
         ref={section5headingref}
       >
-        Our company mission is to exceed expectations
+        {texts[3]}
       </h1>
     </div>
 
@@ -95,7 +149,9 @@ const Section5 = () => {
   </div>
 
   {/* Right Section (Image) */}
-  <div id="section4images" ref={section5refimg} className="w-full sm:w-[40%] h-80 sm:h-[70%] md:h-[60vh] bg-[url('/images/sheng-li-KC5x7jyd33U-unsplash-small.jpg')] bg-cover bg-center bg-no-repeat"/>
+  <div id="section4images" ref={section5refimg} className={`w-full sm:w-[40%] h-80 sm:h-[70%] md:h-[60vh] bg-cover bg-center bg-no-repeat`}>
+    <img src={`${imageUrl}`} alt={`${imageAlt}`} className='w-full h-full object-cover'/>
+    </div>
       
 </div>
 

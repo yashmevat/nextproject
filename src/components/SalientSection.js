@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SalientSection = () => {
+const SalientSection = ({texts}) => {
     
         const salientsectionref = useRef(null)
         const salientsectionheadingref = useRef(null)
@@ -51,11 +51,12 @@ const SalientSection = () => {
 
         return () => ctx.revert()
     }, [])
+    
   return (
     
       <div id="salientsection" className='mt-[10%] w-[100%] flex flex-col justify-center items-center gap-20' ref={salientsectionref}>
         <div className='md:w-[30%] sm:w-[100%] md:ml-[-37%]'>
-          <h4 className='text-3xl sm:text-4xl md:text-5xl text-center md:text-left font-bold' ref={salientsectionheadingref}>We&apos;ve worked with some of the biggest brands</h4>
+          <h4 className='text-3xl sm:text-4xl md:text-5xl text-center md:text-left font-bold' ref={salientsectionheadingref}>{texts[6]}</h4>
         </div>
 
         <div className="grid grid-cols-5 gap-4 w-[70%]">

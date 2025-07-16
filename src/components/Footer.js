@@ -1,14 +1,14 @@
 
 import React from 'react'
 
-const Footer = () => {
+const Footer = ({texts}) => {
     return (
         <div id="footer" className="w-full min-h-[70vh] flex flex-col items-center bg-black px-4 py-8 gap-8">
   
   {/* Upper Footer */}
   <div id="upperfooter" className="w-full md:w-[70%] flex flex-col md:flex-row justify-between items-center text-white gap-6 md:h-[20vh]">
     <h4 id="upperfootertext" className="text-2xl md:text-4xl font-bold text-center md:text-left md:w-[40%]">
-      Enough Talk, Let&apos;s Build Something Together
+      {texts[7]}
     </h4>
     <button className="bg-amber-600 text-white py-3 px-6 rounded-full text-lg md:text-xl font-medium">
       - Reach out now

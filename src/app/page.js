@@ -2,15 +2,16 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ModernCarousel from './components/ModernCarousel';
-import Section3 from './components/Section3';
-import Section4 from './components/Section4';
-import Section5 from './components/Section5';
-import VideoSection from './components/VideoSection';
-import TeamSection from './components/TeamSection';
-import SalientSection from './components/SalientSection';
-import Footer from './components/Footer';
-
+import ModernCarousel from '../components/ModernCarousel';
+import Section3 from '../components/Section3';
+import Section4 from '../components/Section4';
+import Section5 from '../components/Section5';
+import VideoSection from '../components/VideoSection';
+import TeamSection from '../components/TeamSection';
+import SalientSection from '../components/SalientSection';
+import Footer from '../components/Footer';
+import axios from 'axios';
+import he from 'he';
 gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +23,20 @@ export default function Home() {
   const herobtnref = useRef(null)
   const svgref = useRef(null)
   const mainref = useRef(null)
+
+  const [images,setImages]=useState([])
+
+   useEffect(() => {
+     axios.get("/api/posts")
+     .then((res)=>{
+
+      if(res){
+        setImages(res.data);
+      }
+
+     })
+  }, []);
+
   useEffect(() => {
 
     gsap.to(navref.current, {
@@ -84,9 +99,70 @@ export default function Home() {
       }
     );
 
-
-
+    console.log("images are : ",images)
+    
+    
   }, []);
+  
+
+
+  useEffect(() => {
+    axios.get("http://localhost/wordpress/wp-json/custom-api/v1/images")
+      .then((res) => {
+        console.log("Image data:", res.data);
+      });
+  }, []);
+
+
+
+  const [content, setContent] = useState("");
+const [extractedTexts, setExtractedTexts] = useState([]);
+  function extractAttributeBlocks(content) {
+  if (!content) return [];
+
+    // 1. Decode HTML entities
+  const decoded = he.decode(content);
+  // Replace smart quotes with standard quotes
+  const normalized = decoded
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'");
+
+  // 2. Extract values of text_content and link_text attributes
+  const textContentMatches = [...normalized.matchAll(/text_content="([^"]+)"/g)];
+  const linkTextMatches = [...normalized.matchAll(/link_text="([^"]+)"/g)];
+
+  // 3. Combine extracted values
+  return [
+    ...textContentMatches.map(match => match[1]),
+    ...linkTextMatches.map(match => match[1])
+  ];
+}
+
+
+ useEffect(() => {
+  axios
+    .get("http://localhost/wordpress/wp-json/wp/v2/pages?slug=corporate-3-landing")
+    .then((res) => {
+      if (res.data?.[0]?.content?.rendered) {
+        console.log("data from api",res.data)
+        console.log("rendered",res.data[0].content.rendered)
+        setContent(res.data[0].content.rendered);
+        
+      }
+    });
+}, []);
+
+useEffect(()=>{
+  const extractedTexts = extractAttributeBlocks(content)
+  setExtractedTexts(extractedTexts)
+  console.log("extracted texts",extractedTexts)
+
+},[content])
+
+
+
+
+   const bgImage = images.find(img => img.id===5877)
 
 
   return (
@@ -95,7 +171,7 @@ export default function Home() {
         className="relative min-h-[40vh] md:min-h-[93vh] bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('/images/kai-pilger-mgFzfrrmGKI-unsplash.jpg')",
+            `url(${bgImage?.guid})`,
         }}
         ref={mainref}
       >
@@ -197,7 +273,7 @@ export default function Home() {
               id="herotext"
               ref={herotextref}
             >
-              Breathing life into brands through stunning design
+            {extractedTexts[0]}
             </h2>
             <a
               href="#get-started"
@@ -217,18 +293,18 @@ export default function Home() {
       {/* Section 3*/}
       <section>
 
-        <Section3 />
+        <Section3 images={images} texts={extractedTexts}/>
       </section>
       {/* section 4 */}
       <section>
 
-        <Section4 />
+        <Section4 images={images} texts={extractedTexts}/>
       </section>
 
       {/*section 5*/}
       <section>
 
-        <Section5 />
+        <Section5 images={images} texts={extractedTexts}/>
       </section>
 
 
@@ -236,15 +312,13 @@ export default function Home() {
       <section>
 
 
-        <VideoSection />
+        <VideoSection texts={extractedTexts}/>
       </section>
 
       {/*team section*/}
 
       <section>
-
-
-        <TeamSection />
+        <TeamSection images={images} texts={extractedTexts}/>
       </section>
 
       {/* corousel section*/}
@@ -252,22 +326,23 @@ export default function Home() {
 
       <section className="min-h-screen flex items-center justify-center flex-col ">
         <div className='md:w-[40vw] w-[90vw] my-30'>
-          <h1 className='font-bold md:text-5xl text-2xl text-center'>A vibrant work culture that flows with creativity is our secret</h1></div>
-        <ModernCarousel />
+          <h1 className='font-bold md:text-5xl text-2xl text-center'>{extractedTexts[5]}</h1></div>
+        <ModernCarousel images={images} texts={extractedTexts}/>
       </section>
 
       {/*salient section*/}
       <section>
 
-        <SalientSection />
+        <SalientSection texts={extractedTexts}/>
       </section>
 
       {/* last section or footer section */}
       <section>
 
-        <Footer />
+        <Footer texts={extractedTexts}/>
       </section>
     </>
+
 
 
   );

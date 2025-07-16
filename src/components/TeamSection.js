@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TeamSection = () => {
+const TeamSection = ({images,texts}) => {
   const teamsectionref = useRef(null)
   const teamsectionheadingref = useRef(null)
 
@@ -45,15 +45,20 @@ const TeamSection = () => {
       })
     }, teamsectionref)
 
-
-
     return () => ctx.revert()
   }, [])
+
+   const teamAllImages = images.filter((img)=>{
+    if(img.id===5883 || img.id===5894 || img.id===5890 || img.id===5891 || img.id===5882 || img.id===5884)
+      return img
+  })
+
+   console.log(teamAllImages)
   return (
     <div id="teamsection" className="flex flex-col mt-[10%] gap-[5em] items-center px-4" ref={teamsectionref}>
       <div className="w-full md:w-[50%]">
         <h4 className="text-3xl sm:text-4xl md:text-5xl text-center md:text-left font-bold" ref={teamsectionheadingref}>
-          Our team is comprised of genuinely gifted minds
+          {texts[4]}
         </h4>
       </div>
 
@@ -62,7 +67,7 @@ const TeamSection = () => {
         <div className="w-full md:w-[20%] flex flex-col gap-10">
           {/* Card 1 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
-            <img src="/images/albert-dera-ILip77SbmOE-unsplash-1.jpg" className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg" />
+            <img src={`${teamAllImages[1]?.guid}`} className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg" />
             <p className="font-medium">CEO, Founder</p>
             <div>
               <h4 className="font-bold text-2xl sm:text-3xl mb-2">James Warren</h4>
@@ -75,7 +80,7 @@ const TeamSection = () => {
           {/* Card 2 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="/images/team5.jpg"
+              src={`${teamAllImages[5]?.guid}`}
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -93,7 +98,7 @@ const TeamSection = () => {
           {/* Card 3 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="/images/team-6.jpg"
+              src={`${teamAllImages[3]?.guid}`}
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -108,7 +113,7 @@ const TeamSection = () => {
           {/* Card 4 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="/images/team2.jpg"
+              src={`${teamAllImages[0]?.guid}`}
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -126,7 +131,7 @@ const TeamSection = () => {
           {/* Card 5 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="/images/team7.jpg"
+              src={`${teamAllImages[4]?.guid}`}
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>
@@ -141,7 +146,7 @@ const TeamSection = () => {
           {/* Card 6 */}
           <div className="flex flex-col gap-2 teamimages text-center md:text-left">
             <img
-              src="/images/matheus-ferrero-W7b3eDUb_2I-unsplash.jpg"
+              src={`${teamAllImages[2]?.guid}`}
               className="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-90 cursor-pointer shadow-lg"
             />
             <p className="font-medium">CEO, Founder</p>

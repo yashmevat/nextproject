@@ -1,12 +1,15 @@
 "use client"
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getImage } from '@/utils/getImage';
 
 gsap.registerPlugin(ScrollTrigger);
-const Section3 = () => {
+
+
+const Section3 = ({images,texts}) => {
     const section3ref = useRef(null)
     const section3imgref = useRef(null)
     const section3heading = useRef(null)
@@ -52,6 +55,10 @@ const Section3 = () => {
 
         return () => ctx.revert()
     }, [])
+
+    // const section3image = images.find(img=> img.id===10)
+
+
     return (
        <div
   className="flex flex-col items-center justify-center px-4 py-10 text-base md:flex-row md:justify-center md:items-center md:gap-x-20 md:mt-56"
@@ -61,7 +68,7 @@ const Section3 = () => {
   {/* Image Section */}
   <div id="section3-img" className="mb-6 md:mb-0">
     <img
-      src="/images/omar-lopez-rwF_pJRWhAI-unsplash-small.jpg"
+      src={getImage(10,images)}
       ref={section3imgref}
       className="w-60 md:w-[40em] h-auto"
       alt="Section"
@@ -74,7 +81,7 @@ const Section3 = () => {
       className="text-2xl font-bold md:text-4xl sm:text-left md:text-left"
       ref={section3heading}
     >
-      We can take your business to the next level
+      {texts[1]}
     </h1>
 
     <p
