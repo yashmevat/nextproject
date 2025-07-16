@@ -171,7 +171,7 @@ useEffect(()=>{
         className="relative min-h-[40vh] md:min-h-[93vh] bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            `url(${bgImage?.guid})`,
+            `url("/images/kai-pilger-mgFzfrrmGKI-unsplash.jpg")`,
         }}
         ref={mainref}
       >
