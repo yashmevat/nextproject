@@ -114,7 +114,7 @@ export default function Home() {
 
       {/* main section */}
       <div
-        className="relative min-h-[40vh] md:min-h-[93vh] bg-cover bg-center bg-no-repeat"
+        className="relative min-h-[70vh] md:min-h-[93vh] bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: bgUrl ? `url(${bgUrl})` : 'none',
         }}

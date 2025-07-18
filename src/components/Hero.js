@@ -33,13 +33,7 @@ const Hero = ({ texts }) => {
           className="group text-lg sm:text-xl px-6 py-3 bg-amber-600 text-white rounded-full font-semibold mt-4 inline-flex items-center gap-2"
           ref={herobtnref}
           id="dicoverbtn"
-        >
-          <span
-            className="transform transition-transform duration-300 group-hover:translate-x-2 text-4xl"
-          >
-            &#8594;
-          </span>
-          {texts.filter((txt) => txt.type === 'link_text')[0]?.value}
+        > &#8594;{texts.filter((txt) => txt.type === 'link_text')[0]?.value}
         </a>
 
       </section>
