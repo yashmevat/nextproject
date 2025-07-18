@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { getImage } from '@/utils/getImage';
+import { fetchWpImageById, getImage } from '@/utils/getImage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +29,7 @@ const Section3 = ({images,texts}) => {
                     stagger: 0.3,
                     scrollTrigger: {
                         trigger: section3ref.current,
-                        start: "top 80%", // when top of section hits 80% of viewport height
+                        start: "top 60%", // when top of section hits 80% of viewport height
                         toggleActions: "play none none reverse",
                         // markers: true
                     },
@@ -45,7 +45,7 @@ const Section3 = ({images,texts}) => {
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: section3ref.current,
-                    start: "top 80%", // when top of section hits 80% of viewport height
+                    start: "top 60%", // when top of section hits 80% of viewport height
                     toggleActions: "play none none reverse",
                     // markers: true
                 },
@@ -58,6 +58,27 @@ const Section3 = ({images,texts}) => {
 
     // const section3image = images.find(img=> img.id===10)
 
+      const [section3BgUrl, setSection3BgUrl] = useState(null);
+      const [section3BottomImg, setSection3BottomImg] = useState(null)
+      useEffect(() => {
+        const loadBackgroundImage = async () => {
+          const bgImg = texts.filter(item => item.type === 'background_image')[0];
+          const bottomImg = texts.filter(item => item.type === 'image')[2];
+          if (bgImg?.value) {
+            const imageData = await fetchWpImageById(bgImg.value);
+            setSection3BgUrl(imageData?.url || null);
+          }
+
+            if (bottomImg?.value) {
+            const imageData = await fetchWpImageById(bottomImg.value);
+            setSection3BottomImg(imageData?.url || null);
+          }
+        };
+      
+        loadBackgroundImage();
+      }, [texts]);
+
+
 
     return (
        <div
@@ -68,7 +89,7 @@ const Section3 = ({images,texts}) => {
   {/* Image Section */}
   <div id="section3-img" className="mb-6 md:mb-0">
     <img
-      src={getImage(10,images)}
+      src={section3BgUrl}
       ref={section3imgref}
       className="w-60 md:w-[40em] h-auto"
       alt="Section"
@@ -81,28 +102,27 @@ const Section3 = ({images,texts}) => {
       className="text-2xl font-bold md:text-4xl sm:text-left md:text-left"
       ref={section3heading}
     >
-      {texts[1]}
+      {texts.filter((txt)=>txt.type==='text_content')[1]?.value}
     </h1>
 
     <p
       className="text-sm md:text-lg sm:text-left md:text-left md:w-[80%]"
       ref={section3text}
     >
-      Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-      Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+      {texts.filter((txt)=>txt.type==='inner_text')[0]?.value}
     </p>
 
     <button
-      className="bg-white text-amber-500 font-semibold text-sm md:text-lg px-5 py-2 rounded-full w-fit self-center md:self-start sm:text-left"
+      className="bg-white text-amber-600 font-semibold text-sm md:text-lg px-5 py-2 rounded-full w-fit self-center md:self-start sm:text-left"
     >
-      &#8594; View Services
+      &#8594; {texts.filter((txt)=>txt.type==='link_text')[1]?.value}
     </button>
 
     <hr className="my-4 border-gray-300" />
 
     <div id="section3-bottomtext" ref={section3bottom}>
       <h4 className="text-xl md:text-lg font-semibold text-justify md:w-[50%]">
-        “I had a great experience with Salient from start to finish.”
+        {texts.filter((txt)=>txt.type==='quote')[0]?.value}
       </h4>
 
       <div
@@ -110,13 +130,15 @@ const Section3 = ({images,texts}) => {
         className="flex items-center gap-3 mt-3 sm:justify-left md:justify-start"
       >
         <img
-          src="/images/david-hurley-1321290-unsplash.jpg"
+          src={section3BottomImg}
           className="w-10 h-10 rounded-full object-cover"
           alt="Author"
         />
         <div className="text-left">
-          <h3 className="font-bold text-sm md:text-base">Phil Martinez</h3>
-          <p className="text-xs md:text-sm">Designer, Owl Eyes</p>
+          <span className="font-bold text-sm md:text-sm">{texts.filter((txt)=>txt.type==='name')[0]?.value}</span><br/>
+
+          <span className="text-gray-500 text-sm font-semibold">{texts.filter((txt)=>txt.type==='title')[0]?.value}</span>
+          {/* <span className="text-xs md:text-sm">Designer, Owl Eyes</span> */}
         </div>
       </div>
     </div>

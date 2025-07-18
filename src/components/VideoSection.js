@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-const VideoSection = () => {
+const VideoSection = ({texts}) => {
   const videoRef = useRef(null);
 
   const handleFullScreenPlay = () => {
@@ -19,10 +19,25 @@ const VideoSection = () => {
     }
   };
 
+     const [videoUrl, setvideoUrl] = useState(null);
+            useEffect(() => {
+              const loadVideo = () => {
+                const video = texts.filter((txt)=>txt.type==="video_mp4")[0]
+                if(video?.value){
+                  setvideoUrl(video.value)
+                }
+                
+              };
+              loadVideo();
+            }, [texts]);
+
+     const videoText = texts.filter((txt)=> txt.type==="link_text")[3]
+
+     if(!videoUrl) return null
   return (
     <div
       id="videosection"
-      className="relative h-[60vh] sm:h-[70vh] md:h-[100vh] w-full overflow-hidden"
+      className="relative h-[60vh] sm:h-[70vh] md:h-[100vh] w-full overflow-hidden group"
     >
       <video
         ref={videoRef}
@@ -34,7 +49,7 @@ const VideoSection = () => {
         playsInline
       >
         <source
-          src="http://themenectar.com/demo/salient-corporate-3/wp-content/uploads/2019/09/travelpockets_iceland_land_of_fire_and_ice.mp4"
+          src={videoUrl}
           type="video/mp4"
         />
         Your browser does not support the video tag.
@@ -47,12 +62,12 @@ const VideoSection = () => {
       <div className="relative z-20 flex flex-col gap-5 items-center justify-center h-full p-4 text-center">
         <span
           onClick={handleFullScreenPlay}
-          className="text-white text-xl md:text-2xl border-2 rounded-full h-12 w-12 md:h-16 md:w-16 flex justify-center items-center bg-transparent cursor-pointer"
+          className="text-white text-xl md:text-2xl border-2 rounded-full h-12 w-12 md:h-16 md:w-16 flex justify-center items-center bg-transparent cursor-pointer hover:scale-150 transition-all duration-300"
         >
           &#9658;
         </span>
         <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-          See What We&apos;re About
+          {videoText?.value}
         </h1>
       </div>
     </div>

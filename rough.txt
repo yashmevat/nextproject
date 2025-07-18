@@ -1,0 +1,51 @@
+  {/* Section 3 */}
+      <section>
+
+        <Section3 images={images} texts={extractedTexts}/>
+      </section>
+      {/* section 4 */}
+      <section>
+
+        <Section4 images={images} texts={extractedTexts}/>
+      </section>
+
+      {/*section 5*/}
+      <section>
+
+        <Section5 images={images} texts={extractedTexts}/>
+      </section>
+
+
+      {/*section video*/}
+      <section>
+
+
+        <VideoSection texts={extractedTexts}/>
+      </section>
+
+      {/*team section*/}
+
+      <section>
+        <TeamSection images={images} texts={extractedTexts}/>
+      </section>
+
+      {/* corousel section*/}
+
+
+      <section className="min-h-screen flex items-center justify-center flex-col ">
+        <div className='md:w-[40vw] w-[90vw] my-30'>
+          <h1 className='font-bold md:text-5xl text-2xl text-center'>{extractedTexts[5]}</h1></div>
+        <ModernCarousel images={images} texts={extractedTexts}/>
+      </section>
+
+      {/*salient section*/}
+      <section>
+
+        <SalientSection texts={extractedTexts}/>
+      </section>
+
+      {/* last section or footer section */}
+      <section>
+
+        <Footer texts={extractedTexts}/>
+      </section>
