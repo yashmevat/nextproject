@@ -37,6 +37,19 @@ export default function Header({texts}) {
         // markers: true // (Optional) shows visual debug markers
       },
     })
+
+     // Hamburger icon color change
+  gsap.to(svgref.current, {
+    stroke: 'black',
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: document.body,
+      start: 'top -10px',
+      toggleActions: 'play none none reverse',
+    },
+  });
+
+  
     gsap.to(navimgref.current, {
       src: '/images/dark.png',
       duration: 0.5,
