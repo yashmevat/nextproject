@@ -72,7 +72,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost/wordpress/wp-json/custom/v1/wpbakery-page/5909")
+      .get("https://staging.ekarigar.com/wordpress/wp-json/custom/v1/wpbakery-page/5909")
       .then((res) => {
         if (res.data) {
           console.log("data from api", res.data)

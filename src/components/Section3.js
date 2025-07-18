@@ -91,7 +91,7 @@ const Section3 = ({images,texts}) => {
     <img
       src={section3BgUrl}
       ref={section3imgref}
-      className="w-60 md:w-[40em] h-auto"
+      className="w-100 md:w-[40em] h-auto md:h-[40em] object-cover"
       alt="Section"
     />
   </div>

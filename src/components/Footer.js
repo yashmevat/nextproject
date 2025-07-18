@@ -1,17 +1,44 @@
 
-import React, { useEffect } from 'react'
-
+import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+gsap.registerPlugin(ScrollTrigger)
 const Footer = ({ texts }) => {
+  const footerRef = useRef(null)
+  const footerHeadRef = useRef(null)
+ 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(footerHeadRef.current,
+        { opacity: 0, scale: 0.3 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          stagger: 1.2,
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top 50%", // when top of section hits 80% of viewport height
+            toggleActions: "play none none reverse",
+            // markers: true
+          },
+        }
+      )
+    }, footerRef)
+ 
+    return () => ctx.revert()
+  }, [])
 
   const headText = texts.filter(txt => txt.type === "text_content")[7]
   const linkText = texts.filter(txt => txt.type === "link_text")[4]
 
   return (
-    <div id="footer" className="w-full min-h-[70vh] flex flex-col items-center bg-black px-4 py-8 gap-8">
+    <div id="footer" className="w-full min-h-[70vh] flex flex-col items-center bg-black px-4 py-8 gap-8" ref={footerRef}>
 
       {/* Upper Footer */}
       <div id="upperfooter" className="w-full md:w-[70%] flex flex-col md:flex-row justify-between items-center text-white gap-6 md:h-[20vh]">
-        <h4 id="upperfootertext" className="text-2xl md:text-4xl font-bold text-center md:text-left md:w-[40%]">
+        <h4 id="upperfootertext" className="text-2xl md:text-4xl font-bold text-center md:text-left md:w-[40%]" ref={footerHeadRef}>
           {headText?.value}
         </h4>
         <button className="bg-amber-600 text-white py-3 px-6 rounded-full text-lg md:text-xl font-medium">

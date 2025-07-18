@@ -25,7 +25,7 @@ export default function ModernCarousel({ texts }) {
           stagger: 1.2,
           scrollTrigger: {
             trigger: crouselRef.current,
-            start: "top 80%", // when top of section hits 80% of viewport height
+            start: "top 50%", // when top of section hits 80% of viewport height
             toggleActions: "play none none reverse",
             // markers: true
           },
