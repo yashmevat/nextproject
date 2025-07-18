@@ -53,3 +53,4 @@
 
 
      cpanel password: @?h[W*Cs=y7Tfh%Q
+     db pass : UM%3SYApNzO63#@2

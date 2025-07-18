@@ -6,7 +6,7 @@ export const getImage = (id,images)=>{
 
 export async function fetchWpImageById(id) {
   try {
-    const res = await fetch(`http://localhost/wordpress/wp-json/custom/v1/image/${id}`);
+    const res = await fetch(`https://staging.ekarigar.com/wordpress/wp-json/custom/v1/image/${id}`);
     if (!res.ok) {
       throw new Error(`Image not found (ID: ${id})`);
     }
