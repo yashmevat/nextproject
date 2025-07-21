@@ -29,7 +29,7 @@ const Section3 = ({images,texts}) => {
                     stagger: 0.3,
                     scrollTrigger: {
                         trigger: section3ref.current,
-                        start: "top 60%", // when top of section hits 80% of viewport height
+                        start: "top 80%", // when top of section hits 80% of viewport height
                         toggleActions: "play none none reverse",
                         // markers: true
                     },
@@ -45,7 +45,7 @@ const Section3 = ({images,texts}) => {
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: section3ref.current,
-                    start: "top 60%", // when top of section hits 80% of viewport height
+                    start: "top 80%", // when top of section hits 80% of viewport height
                     toggleActions: "play none none reverse",
                     // markers: true
                 },

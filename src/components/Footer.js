@@ -19,7 +19,7 @@ const Footer = ({ texts }) => {
           stagger: 1.2,
           scrollTrigger: {
             trigger: footerRef.current,
-            start: "top 50%", // when top of section hits 80% of viewport height
+            start: "top -50%", // when top of section hits 80% of viewport height
             toggleActions: "play none none reverse",
             // markers: true
           },

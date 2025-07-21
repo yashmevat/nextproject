@@ -28,7 +28,7 @@ const SalientSection = ({texts}) => {
                     stagger:0.3,
                     scrollTrigger: {
                         trigger: salientsectionref.current,
-                        start: "top 30%", // when top of section hits 80% of viewport height
+                        start: "top 10%", // when top of section hits 80% of viewport height
                         toggleActions: "play none none reverse",
                         // markers: true
                     },

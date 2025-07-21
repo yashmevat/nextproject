@@ -21,7 +21,7 @@ const TeamSection = ({texts }) => {
           stagger: 1.2,
           scrollTrigger: {
             trigger: teamsectionref.current,
-            start: "top 80%", // when top of section hits 80% of viewport height
+            start: "top -30%", // when top of section hits 80% of viewport height
             toggleActions: "play none none reverse",
             // markers: true
           },
@@ -36,7 +36,7 @@ const TeamSection = ({texts }) => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: teamsectionref.current,
-          start: "top 80%", // when top of section hits 80% of viewport height
+          start: "top -30%", // when top of section hits 80% of viewport height
           toggleActions: "play none none reverse",
           // markers: true
         },
