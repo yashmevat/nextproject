@@ -87,11 +87,11 @@ const Section3 = ({images,texts}) => {
   ref={section3ref}
 >
   {/* Image Section */}
-  <div id="section3-img" className="mb-6 md:mb-0">
+  <div id="section3-img" className="mb-6 md:mb-0 md:w-[40em] h-auto md:h-[40em]">
     <img
       src={section3BgUrl}
       ref={section3imgref}
-      className="w-100 md:w-[40em] h-auto md:h-[40em] object-cover"
+      className=" object-cover"
       alt="Section"
     />
   </div>

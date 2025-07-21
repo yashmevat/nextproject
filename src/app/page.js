@@ -19,11 +19,11 @@ import Loading from './Loading';
 gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   
+  
 
   const [content, setContent] = useState("");
-  const [extractedTexts, setExtractedTexts] = useState([]);
-  const [loading,setLoading] = useState(true)
-
+  const [extractedTexts, setExtractedTexts] = useState([]); 
+  const [loading, setLoading] = useState(true);
   function extractAttributeBlocks(content) {
     if (!content) return [];
 
@@ -80,8 +80,10 @@ export default function Home() {
           console.log("data from api", res.data)
           console.log("rendered", res.data.data.content_html)
           setContent(res.data.data.content_html);
-          // setLoading(false)
+
         }
+      }).finally(()=>{
+         setLoading(false)
       })
   }, []);
 
@@ -101,7 +103,7 @@ export default function Home() {
       const bgImage = extractedTexts.find(item => item.type === 'bg_image');
       if (bgImage?.value) {
         const imageData = await fetchWpImageById(bgImage.value);
-        setBgUrl(imageData?.url || null);
+        setBgUrl(imageData?.url || "/images/kai-pilger-mgFzfrrmGKI-unsplash.jpg");
         setLoading(false)
       }
     };

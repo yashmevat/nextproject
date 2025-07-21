@@ -16,16 +16,17 @@ export default function ModernCarousel({ texts }) {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(crouselHeadRef.current,
-        { opacity: 0, scale: 0.3 },
+        { opacity: 0, scale: 0.3 , y: 200 },
         {
           opacity: 1,
+          y: 0,
           scale: 1,
           duration: 1.2,
           ease: "power3.out",
           stagger: 1.2,
           scrollTrigger: {
             trigger: crouselRef.current,
-            start: "top 80%", // when top of section hits 80% of viewport height
+            start: "top 10%", // when top of section hits 80% of viewport height
             toggleActions: "play none none reverse",
             // markers: true
           },
