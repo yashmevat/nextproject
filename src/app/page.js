@@ -24,6 +24,7 @@ export default function Home() {
   const [content, setContent] = useState("");
   const [extractedTexts, setExtractedTexts] = useState([]); 
   const [loading, setLoading] = useState(true);
+  const [bgUrl, setBgUrl] = useState(null);
   function extractAttributeBlocks(content) {
     if (!content) return [];
 
@@ -95,7 +96,6 @@ export default function Home() {
   }, [content])
 
 
-  const [bgUrl, setBgUrl] = useState(null);
 
   useEffect(() => {
     const loadBackgroundImage = async () => {
